@@ -285,6 +285,8 @@ namespace ProjectProductivityReportsDLL {
             
             private global::System.Data.DataColumn columnTotalHours;
             
+            private global::System.Data.DataColumn columnLaborCost;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FindPrivateProjectProductivityDateRangeDataTable() {
@@ -344,6 +346,14 @@ namespace ProjectProductivityReportsDLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn LaborCostColumn {
+                get {
+                    return this.columnLaborCost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +389,13 @@ namespace ProjectProductivityReportsDLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FindPrivateProjectProductivityDateRangeRow AddFindPrivateProjectProductivityDateRangeRow(string AssignedProjectID, string ProjectName, decimal TotalHours) {
+            public FindPrivateProjectProductivityDateRangeRow AddFindPrivateProjectProductivityDateRangeRow(string AssignedProjectID, string ProjectName, decimal TotalHours, decimal LaborCost) {
                 FindPrivateProjectProductivityDateRangeRow rowFindPrivateProjectProductivityDateRangeRow = ((FindPrivateProjectProductivityDateRangeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AssignedProjectID,
                         ProjectName,
-                        TotalHours};
+                        TotalHours,
+                        LaborCost};
                 rowFindPrivateProjectProductivityDateRangeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFindPrivateProjectProductivityDateRangeRow);
                 return rowFindPrivateProjectProductivityDateRangeRow;
@@ -410,6 +421,7 @@ namespace ProjectProductivityReportsDLL {
                 this.columnAssignedProjectID = base.Columns["AssignedProjectID"];
                 this.columnProjectName = base.Columns["ProjectName"];
                 this.columnTotalHours = base.Columns["TotalHours"];
+                this.columnLaborCost = base.Columns["LaborCost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,11 +433,14 @@ namespace ProjectProductivityReportsDLL {
                 base.Columns.Add(this.columnProjectName);
                 this.columnTotalHours = new global::System.Data.DataColumn("TotalHours", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalHours);
+                this.columnLaborCost = new global::System.Data.DataColumn("LaborCost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLaborCost);
                 this.columnAssignedProjectID.AllowDBNull = false;
                 this.columnAssignedProjectID.MaxLength = 2147483647;
                 this.columnProjectName.AllowDBNull = false;
                 this.columnProjectName.MaxLength = 2147483647;
                 this.columnTotalHours.ReadOnly = true;
+                this.columnLaborCost.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -607,6 +622,23 @@ namespace ProjectProductivityReportsDLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal LaborCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFindPrivateProjectProductivityDateRange.LaborCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LaborCost\' in table \'FindPrivateProjectProductivityDateRang" +
+                                "e\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFindPrivateProjectProductivityDateRange.LaborCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTotalHoursNull() {
                 return this.IsNull(this.tableFindPrivateProjectProductivityDateRange.TotalHoursColumn);
             }
@@ -615,6 +647,18 @@ namespace ProjectProductivityReportsDLL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotalHoursNull() {
                 this[this.tableFindPrivateProjectProductivityDateRange.TotalHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLaborCostNull() {
+                return this.IsNull(this.tableFindPrivateProjectProductivityDateRange.LaborCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetLaborCostNull() {
+                this[this.tableFindPrivateProjectProductivityDateRange.LaborCostColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -780,6 +824,7 @@ namespace ProjectProductivityReportsDLL.FindPrivateProjectProductivityDateRangeD
             tableMapping.ColumnMappings.Add("AssignedProjectID", "AssignedProjectID");
             tableMapping.ColumnMappings.Add("ProjectName", "ProjectName");
             tableMapping.ColumnMappings.Add("TotalHours", "TotalHours");
+            tableMapping.ColumnMappings.Add("LaborCost", "LaborCost");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
